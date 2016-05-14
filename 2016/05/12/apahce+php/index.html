@@ -3,45 +3,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>windows Apache+PHP环境搭建 | Haihson</title>
+  <title>windows Apache+PHP环境搭建 | Haihson&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="windows Apache+PHP环境搭建最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。
+  <meta name="description" content="最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。
 首先准备好待安装的文件:
 
 Apache2.4.20 
 PHP5.6.21
 
-这是我所选择的版本 httpd-2.4.20-x64 、php-5.6.21-Win32-VC11-x6">
+这是我所选择的版本 httpd-2.4.20-x64 、php-5.6.21-Win32-VC11-x64  windwos64位，当然你也可根据自">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows Apache+PHP环境搭建">
 <meta property="og:url" content="http://haihson.github.io/2016/05/12/apahce+php/index.html">
-<meta property="og:site_name" content="Haihson">
-<meta property="og:description" content="windows Apache+PHP环境搭建最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。
+<meta property="og:site_name" content="Haihson's Blog">
+<meta property="og:description" content="最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。
 首先准备好待安装的文件:
 
 Apache2.4.20 
 PHP5.6.21
 
-这是我所选择的版本 httpd-2.4.20-x64 、php-5.6.21-Win32-VC11-x6">
+这是我所选择的版本 httpd-2.4.20-x64 、php-5.6.21-Win32-VC11-x64  windwos64位，当然你也可根据自">
 <meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513095738.png">
 <meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513095802.png">
 <meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513100502.png">
 <meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513101845.png">
 <meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513102156.png">
 <meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513102434.png">
-<meta property="og:updated_time" content="2016-05-13T02:41:51.812Z">
+<meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513150504.png">
+<meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160513150530.png">
+<meta property="og:updated_time" content="2016-05-14T03:25:22.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows Apache+PHP环境搭建">
-<meta name="twitter:description" content="windows Apache+PHP环境搭建最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。
+<meta name="twitter:description" content="最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。
 首先准备好待安装的文件:
 
 Apache2.4.20 
 PHP5.6.21
 
-这是我所选择的版本 httpd-2.4.20-x64 、php-5.6.21-Win32-VC11-x6">
+这是我所选择的版本 httpd-2.4.20-x64 、php-5.6.21-Win32-VC11-x64  windwos64位，当然你也可根据自">
 <meta name="twitter:image" content="http://o73el5cs1.bkt.clouddn.com/20160513095738.png">
   
-    <link rel="alternate" href="/atom.xml" title="Haihson" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Haihson&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -62,7 +64,7 @@ PHP5.6.21
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Haihson</a>
+        <a href="/" id="logo">Haihson&#39;s Blog</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -83,7 +85,7 @@ PHP5.6.21
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://haihson.github.io"></form>
@@ -95,7 +97,7 @@ PHP5.6.21
         <section id="main"><article id="post-apahce+php" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/12/apahce+php/" class="article-date">
-  <time datetime="2016-05-12T15:38:49.000Z" itemprop="datePublished">2016-05-12</time>
+  <time datetime="2016-05-12T15:28:49.000Z" itemprop="datePublished">2016-05-12</time>
 </a>
     
   <div class="article-category">
@@ -118,7 +120,7 @@ PHP5.6.21
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="windows-Apache-PHP环境搭建"><a href="#windows-Apache-PHP环境搭建" class="headerlink" title="windows Apache+PHP环境搭建"></a>windows Apache+PHP环境搭建</h2><p>最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。</p>
+        <p>最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。</p>
 <p>首先准备好待安装的文件:</p>
 <ul>
 <li><a href="http://www.apachehaus.com/cgi-bin/download.plx" target="_blank" rel="external">Apache2.4.20</a> </li>
@@ -160,13 +162,26 @@ PHP5.6.21
 <p>显示为PHP的版本的详情信息，则表示PHP环境安装成功。</p>
 <p><img src="http://o73el5cs1.bkt.clouddn.com/20160513102434.png" alt="php信息"></p>
 <p>至此，Apache+php的基本配置已完毕。</p>
+<p>后续加入PHP项目，这里可能会遇到一个坑，就在是服务启动正常，但是在访问PHP项目的时候会报错，导致部分功能不能正常使用，其他的访问正常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP Parse error:  syntax error, unexpected end of file xxxx文件</span><br></pre></td></tr></table></figure>
+<p>查看报错位置的文件，也发现完全没有问题，这样捣腾来回一两小时过去了，最后搜索到有人遇到了一样的这个问题</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513150504.png" alt="php错误信息"></p>
+<p>有大神留有答案</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513150530.png" alt="php错误信息"></p>
+<p>就是 short_open_tag 这个配置，这个在 php.ini 文件中默认为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">short_open_tag = Off</span><br></pre></td></tr></table></figure>
+<p>将其更改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">short_open_tag = On</span><br></pre></td></tr></table></figure>
+<p>问题解决， O MY GOD …. 就因为这个。然后去PHP官网了解了这个配置指令</p>
+<p><a href="http://php.net/manual/zh/ini.core.php#ini.short-open-tag" target="_blank" rel="external">官网地址</a> 更详细的可去官网自行查阅</p>
+<p>short_open_tag boolean<br>决定是否允许使用 PHP 代码开始标志的缩写形式（&lt;? ?&gt;）。如果要和 XML 结合使用 PHP，可以禁用此选项以便于嵌入使用 &lt;?xml ?&gt;。否则还可以通过 PHP 来输出，例如：&lt;?php echo ‘&lt;?xml version=”1.0”‘; ?&gt;。如果禁用了，必须使用 PHP 代码开始标志的完整形式（&lt;?php ?&gt;）。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://haihson.github.io/2016/05/12/apahce+php/" data-id="cio560ge20000noo5kqju69ps" class="article-share-link">Delen</a>
+      <a data-url="http://haihson.github.io/2016/05/12/apahce+php/" data-id="cio6lbzm90001zwo5c0e4nd0d" class="article-share-link">Share</a>
       
-        <a href="http://haihson.github.io/2016/05/12/apahce+php/#disqus_thread" class="article-comment-link">Commentaren</a>
+        <a href="http://haihson.github.io/2016/05/12/apahce+php/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -177,7 +192,7 @@ PHP5.6.21
   
   
     <a href="/2016/04/26/test/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Wirting Blog By Hexo</div>
     </a>
   
@@ -198,7 +213,7 @@ PHP5.6.21
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categorieën</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/categories/">categories</a></li></ul>
     </div>
@@ -213,7 +228,7 @@ PHP5.6.21
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li></ul>
     </div>
@@ -223,7 +238,7 @@ PHP5.6.21
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
