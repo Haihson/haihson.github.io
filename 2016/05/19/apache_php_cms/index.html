@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Apache_PHP_CMS项目运行问题 | Haihson&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾(汗，差不多两天…)，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是 .htaccess 这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示123HelloPlease check if yo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache_PHP_CMS项目运行问题">
+<meta property="og:url" content="http://haihson.github.io/2016/05/19/apache_php_cms/index.html">
+<meta property="og:site_name" content="Haihson's Blog">
+<meta property="og:description" content="在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾(汗，差不多两天…)，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是 .htaccess 这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示123HelloPlease check if yo">
+<meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160519111439.png">
+<meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160519111544.png">
+<meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160519111630.png">
+<meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160519111331.png">
+<meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20160519111406.png">
+<meta property="og:updated_time" content="2016-05-19T04:40:57.038Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apache_PHP_CMS项目运行问题">
+<meta name="twitter:description" content="在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾(汗，差不多两天…)，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是 .htaccess 这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示123HelloPlease check if yo">
+<meta name="twitter:image" content="http://o73el5cs1.bkt.clouddn.com/20160519111439.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Haihson&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://o73el5cs1.bkt.clouddn.com/7833658.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://o73el5cs1.bkt.clouddn.com/20160514114829.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Haihson</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">mmmmmmm香蕉</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>主菜单</li>
+						<li>云标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Haihson" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">博主很懒，还没留下什么东西......</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Haihson</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://o73el5cs1.bkt.clouddn.com/20160514114829.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Haihson</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">mmmmmmm香蕉</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Haihson" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-apache_php_cms" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/19/apache_php_cms/" class="article-date">
+  	<time datetime="2016-05-19T03:50:19.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Apache_PHP_CMS项目运行问题
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cms/">cms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/PHP/">PHP</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾-汗，差不多两天…-，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是-htaccess-这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示"><a href="#在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾-汗，差不多两天…-，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是-htaccess-这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示" class="headerlink" title="在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾(汗，差不多两天…)，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是 .htaccess 这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示"></a>在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾(汗，差不多两天…)，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是 .htaccess 这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br><span class="line">Please check if you have in merger/ a file called .htaccess It handles the link rewriting.</span><br><span class="line">If you have it your server might not load it, or you might not have mod_rewrite enabled.</span><br></pre></td></tr></table></figure>
+<p>所以搜索了下 Apahce php 关于这个文件的相关问题，果然有收获</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111439.png" alt=".htaccess problem"></p>
+<p>找到这个问题描述的情况和我出现的问题有很大可能就是这个原因</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111544.png" alt=".htaccess problem"></p>
+<p>根据以上描述，找到 Apache 模块配置的文档 <a href="http://httpd.apache.org/docs/2.4/mod/core.html#allowoverride" target="_blank" rel="external">传送门</a> </p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111630.png" alt=".htaccess Answers"></p>
+<p>应该是要在 Apache 的配置文件 httpd.conf 文件中 配置 AllowOverride<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride All    此处将默认的 none 改为 All</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">AllowOverride All        此处将默认的 none 改为 All</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&lt;Directory &quot;$&#123;SRVROOT&#125;/cgi-bin&quot;&gt;</span><br><span class="line">    AllowOverride All    此处将默认的 none 改为 All</span><br><span class="line">    Options All          此处将默认的 none 改为 All</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后重启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd -k restart</span><br></pre></td></tr></table></figure></p>
+<h5 id="解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error-log日志，错误："><a href="#解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error-log日志，错误：" class="headerlink" title="解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error.log日志，错误："></a>解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error.log日志，错误：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invalid command &apos;Order&apos;, perhaps misspelled or defined by a module not included in the server configuration</span><br></pre></td></tr></table></figure>
+<p>搜索了下这个错误，找到出现同样问题的结果：<br><img src="http://o73el5cs1.bkt.clouddn.com/20160519111331.png" alt="error log"></p>
+<p>解决如下，原来是需要加载一个模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule access_compat_module modules/mod_access_compat.so  去掉前面的#号</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111406.png" alt="Invalid command &#39;Order&#39; Answers"></p>
+<p>然后重启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd -k restart</span><br></pre></td></tr></table></figure></p>
+<p>ok 解决了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/12/apahce+php/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">windows Apache+PHP环境搭建</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'mmmmblog'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Haihson
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a>
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
