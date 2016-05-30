@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+						<a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,82 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-css_input" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/30/css_input/" class="article-date">
+  	<time datetime="2016-05-30T09:19:19.000Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/30/css_input/">css_input 光标显示问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="在项目中，页面中的input框，在手机端输入时-触发焦点时光标的高度和input框的高度是一样的，输入内容后光标高度从input顶部到文字底部，然后删掉输入的内容，光标高度还是从input顶部到文字底部。"><a href="#在项目中，页面中的input框，在手机端输入时-触发焦点时光标的高度和input框的高度是一样的，输入内容后光标高度从input顶部到文字底部，然后删掉输入的内容，光标高度还是从input顶部到文字底部。" class="headerlink" title="在项目中，页面中的input框，在手机端输入时 触发焦点时光标的高度和input框的高度是一样的，输入内容后光标高度从input顶部到文字底部，然后删掉输入的内容，光标高度还是从input顶部到文字底部。"></a>在项目中，页面中的input框，在手机端输入时 触发焦点时光标的高度和input框的高度是一样的，输入内容后光标高度从input顶部到文字底部，然后删掉输入的内容，光标高度还是从input顶部到文字底部。</h5><p>input内容为空时：</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160530165328.png" alt="input内容为空时"></p>
+<p>输入内容后：</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160530165312.png" alt="input内容为空时"></p>
+<p>input部分的 CSS 所写如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">border: none;</span><br><span class="line">font-size: 1.4rem;</span><br><span class="line">height: 2.8rem;</span><br><span class="line">line-height: 2.8rem;</span><br><span class="line">width: 100%;</span><br><span class="line">background: rgba(255, 255, 255, 1);</span><br><span class="line">border-radius: 0.4rem;</span><br><span class="line">text-indent: 2.8rem;</span><br></pre></td></tr></table></figure></p>
+<p>解决办法：<br>是由于没有设置padding 以及 font-size和height ling-height 值设置的问题，调整 input 部分的 CSS 写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">border: none;</span><br><span class="line">font-size: 1.4rem;</span><br><span class="line">height: 1.4rem;</span><br><span class="line">line-height: 1.4rem;</span><br><span class="line">padding: 0.7rem 0;</span><br><span class="line">width: 100%;</span><br><span class="line">background: rgba(255, 255, 255, 1);</span><br><span class="line">border-radius: 0.4rem;</span><br><span class="line">text-indent: 2.8rem;</span><br></pre></td></tr></table></figure>
+<p>font-size 和 height line-height 值设置一样，剩余的高度用 padding 去撑开：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">修改前</span><br><span class="line">font-size: 1.4rem;</span><br><span class="line">height: 2.8rem;</span><br><span class="line">line-height: 2.8rem;</span><br><span class="line"></span><br><span class="line">修改后</span><br><span class="line">font-size: 1.4rem;</span><br><span class="line">height: 1.4rem;</span><br><span class="line">line-height: 1.4rem;</span><br><span class="line">padding: 0.7rem 0;</span><br></pre></td></tr></table></figure>
+<p>另外在不同的浏览器上 input placeholder 居中可能不一致，可通过设置 line-height 来达到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">line-height: normal;</span><br></pre></td></tr></table></figure>
+<p>解决后的效果：</p>
+<p>input内容为空时：</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160530170559.png" alt="input内容为空时"></p>
+<p>输入内容后：</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160530170547.png" alt="input内容为空时"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/input/">input</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/PHP/">PHP</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-apache_php_cms" class="article article-type-post" itemscope itemprop="blogPost">
   
