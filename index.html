@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html5/" style="font-size: 20px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,70 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-histroy_back_js_flush" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/13/histroy_back_js_flush/" class="article-date">
+  	<time datetime="2016-10-13T10:19:19.000Z" itemprop="datePublished">2016-10-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/13/histroy_back_js_flush/">浏览器后退上一级页面中JS执行问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="在项目中，页面中如果后退-history-back-至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome-Firefox-移动端webview中使用-history-back-或者-history-go-1-都是可以的，但在iphone-ipad-mac中-safari-却不行。"><a href="#在项目中，页面中如果后退-history-back-至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome-Firefox-移动端webview中使用-history-back-或者-history-go-1-都是可以的，但在iphone-ipad-mac中-safari-却不行。" class="headerlink" title="在项目中，页面中如果后退 history.back() 至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome Firefox 移动端webview中使用 history.back() 或者 history.go(-1) 都是可以的，但在iphone ipad mac中 safari 却不行。"></a>在项目中，页面中如果后退 history.back() 至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome Firefox 移动端webview中使用 history.back() 或者 history.go(-1) 都是可以的，但在iphone ipad mac中 safari 却不行。</h5><p>解决办法，用以下进行后退即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.document.referrer</span><br></pre></td></tr></table></figure></p>
+<p>具体写法也可针对性写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (/(iPhone|iPad|iPod)/i.test(navigator.userAgent)) &#123;             </span><br><span class="line">     window.location.href = window.document.referrer;</span><br><span class="line">&#125; else &#123; </span><br><span class="line">	 window.history.go(&quot;-1&quot;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>document.referrer 文档的相关说明 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer" target="_blank" rel="external">传送门</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/CSS/">CSS</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-python_BeautifulSoup" class="article article-type-post" itemscope itemprop="blogPost">
   
