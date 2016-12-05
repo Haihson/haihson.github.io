@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>浏览器后退上一级页面中JS执行问题 | Haihson&#39;s Blog</title>
+  <title>Linux grep 命令 | Haihson&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在项目中，页面中如果后退 history.back() 至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome Firefox 移动端webview中使用 history.back() 或者 history.go(-1) 都是可以的，但在iphone ipad mac中 safari 却不行。解决办法，用以下进行后退即可：1window.document.refer">
+  <meta name="description" content="Linux grep 命令如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是：1grep apple fruitlist.txt
+如果想忽略大小写，可以用-i参数：1grep -i apple fruitlist.txt
+如果想搜索目录里所有文件，包括子目录的话，并且在结果中显示行号，可以用以下命令：1grep -nr apple *
+grep的语法支持正则表达">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浏览器后退上一级页面中JS执行问题">
-<meta property="og:url" content="http://haihson.github.io/2016/10/13/histroy_back_js_flush/index.html">
+<meta property="og:title" content="Linux grep 命令">
+<meta property="og:url" content="http://haihson.github.io/2016/12/05/linux_grep/index.html">
 <meta property="og:site_name" content="Haihson's Blog">
-<meta property="og:description" content="在项目中，页面中如果后退 history.back() 至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome Firefox 移动端webview中使用 history.back() 或者 history.go(-1) 都是可以的，但在iphone ipad mac中 safari 却不行。解决办法，用以下进行后退即可：1window.document.refer">
-<meta property="og:updated_time" content="2016-10-13T11:21:57.261Z">
+<meta property="og:description" content="Linux grep 命令如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是：1grep apple fruitlist.txt
+如果想忽略大小写，可以用-i参数：1grep -i apple fruitlist.txt
+如果想搜索目录里所有文件，包括子目录的话，并且在结果中显示行号，可以用以下命令：1grep -nr apple *
+grep的语法支持正则表达">
+<meta property="og:updated_time" content="2016-12-05T10:51:46.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器后退上一级页面中JS执行问题">
-<meta name="twitter:description" content="在项目中，页面中如果后退 history.back() 至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome Firefox 移动端webview中使用 history.back() 或者 history.go(-1) 都是可以的，但在iphone ipad mac中 safari 却不行。解决办法，用以下进行后退即可：1window.document.refer">
+<meta name="twitter:title" content="Linux grep 命令">
+<meta name="twitter:description" content="Linux grep 命令如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是：1grep apple fruitlist.txt
+如果想忽略大小写，可以用-i参数：1grep -i apple fruitlist.txt
+如果想搜索目录里所有文件，包括子目录的话，并且在结果中显示行号，可以用以下命令：1grep -nr apple *
+grep的语法支持正则表达">
   
     <link rel="alternative" href="/atom.xml" title="Haihson&#39;s Blog" type="application/atom+xml">
   
@@ -172,11 +181,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-histroy_back_js_flush" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-linux_grep" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/10/13/histroy_back_js_flush/" class="article-date">
-  	<time datetime="2016-10-13T10:19:19.000Z" itemprop="datePublished">2016-10-13</time>
+      <a href="/2016/12/05/linux_grep/" class="article-date">
+  	<time datetime="2016-12-05T09:19:19.000Z" itemprop="datePublished">2016-12-05</time>
 </a>
     </div>
   
@@ -189,7 +198,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      浏览器后退上一级页面中JS执行问题
+      Linux grep 命令
     </h1>
   
 
@@ -198,12 +207,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grep/">grep</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/CSS/">CSS</a>
+	<a class="article-category-link" href="/categories/Linux/">Linux</a>
 	</div>
 
 
@@ -213,10 +222,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="在项目中，页面中如果后退-history-back-至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome-Firefox-移动端webview中使用-history-back-或者-history-go-1-都是可以的，但在iphone-ipad-mac中-safari-却不行。"><a href="#在项目中，页面中如果后退-history-back-至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome-Firefox-移动端webview中使用-history-back-或者-history-go-1-都是可以的，但在iphone-ipad-mac中-safari-却不行。" class="headerlink" title="在项目中，页面中如果后退 history.back() 至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome Firefox 移动端webview中使用 history.back() 或者 history.go(-1) 都是可以的，但在iphone ipad mac中 safari 却不行。"></a>在项目中，页面中如果后退 history.back() 至上一级页面，上一级页面的JS会执行，结果发现，这里存在一个兼容性的问题，Chrome Firefox 移动端webview中使用 history.back() 或者 history.go(-1) 都是可以的，但在iphone ipad mac中 safari 却不行。</h5><p>解决办法，用以下进行后退即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.document.referrer</span><br></pre></td></tr></table></figure></p>
-<p>具体写法也可针对性写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (/(iPhone|iPad|iPod)/i.test(navigator.userAgent)) &#123;             </span><br><span class="line">     window.location.href = window.document.referrer;</span><br><span class="line">&#125; else &#123; </span><br><span class="line">	 window.history.go(&quot;-1&quot;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>document.referrer 文档的相关说明 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/referrer" target="_blank" rel="external">传送门</a></p>
+        <h1 id="Linux-grep-命令"><a href="#Linux-grep-命令" class="headerlink" title="Linux grep 命令"></a>Linux grep 命令</h1><h4 id="如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是："><a href="#如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是：" class="headerlink" title="如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是："></a>如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep apple fruitlist.txt</span><br></pre></td></tr></table></figure>
+<p>如果想忽略大小写，可以用-i参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i apple fruitlist.txt</span><br></pre></td></tr></table></figure></p>
+<p>如果想搜索目录里所有文件，包括子目录的话，并且在结果中显示行号，可以用以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -nr apple *</span><br></pre></td></tr></table></figure></p>
+<p>grep的语法支持正则表达式，正则表达式有些复杂，以后再讲解。下面是一些有用的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-A num, --after-context=num: 在结果中同时输出匹配行之后的num行</span><br><span class="line">-B num, --before-context=num: 在结果中同时输出匹配行之前的num行，有时候我们需要显示几行上下文。</span><br><span class="line">-i, --ignore-case: 忽略大小写</span><br><span class="line">-n, --line-number: 显示行号</span><br><span class="line">-R, -r, --recursive: 递归搜索子目录</span><br><span class="line">-v, --invert-match: 输出没有匹配的行</span><br></pre></td></tr></table></figure></p>
+<p>我们可以通过管道操作来让grep变得更强大，管道操作就是把前面一条命令的输出作为后面一条命令的输入，从而把很多简单的命令组合起来完成复杂的功能。</p>
+<p>例如，如果我们想查找包含apple的行，但又想过滤掉pineapple，可以用下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep apple fruitlist.txt | grep -v pineapple</span><br></pre></td></tr></table></figure>
+<p>如果我们想把搜索结果保存起来，那么可以把命令的标准输出重定向到文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep apple fruitlist.txt | grep -v pineapple &gt; apples.txt</span><br></pre></td></tr></table></figure></p>
+<p>重定向符号&gt;和管道操作符号|的区别是，重定向后面接的是一个文件，它后面不能再接任何文件或命令了；而管道操作后面接的是命令，可以无限地接下去。</p>
 
       
     </div>
@@ -226,18 +240,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/12/05/linux_grep/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Linux grep 命令
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/06/22/python_BeautifulSoup/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python 爬虫第一弹</div>
+    <a href="/2016/10/13/histroy_back_js_flush/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浏览器后退上一级页面中JS执行问题</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

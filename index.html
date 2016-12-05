@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html5/" style="font-size: 20px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 20px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,75 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linux_grep" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/05/linux_grep/" class="article-date">
+  	<time datetime="2016-12-05T09:19:19.000Z" itemprop="datePublished">2016-12-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/05/linux_grep/">Linux grep 命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux-grep-命令"><a href="#Linux-grep-命令" class="headerlink" title="Linux grep 命令"></a>Linux grep 命令</h1><h4 id="如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是："><a href="#如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是：" class="headerlink" title="如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是："></a>如果想在Linux下查找和过滤文本文件内容，那么就得用grep这个命令。最简单的用法是：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep apple fruitlist.txt</span><br></pre></td></tr></table></figure>
+<p>如果想忽略大小写，可以用-i参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i apple fruitlist.txt</span><br></pre></td></tr></table></figure></p>
+<p>如果想搜索目录里所有文件，包括子目录的话，并且在结果中显示行号，可以用以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -nr apple *</span><br></pre></td></tr></table></figure></p>
+<p>grep的语法支持正则表达式，正则表达式有些复杂，以后再讲解。下面是一些有用的参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-A num, --after-context=num: 在结果中同时输出匹配行之后的num行</span><br><span class="line">-B num, --before-context=num: 在结果中同时输出匹配行之前的num行，有时候我们需要显示几行上下文。</span><br><span class="line">-i, --ignore-case: 忽略大小写</span><br><span class="line">-n, --line-number: 显示行号</span><br><span class="line">-R, -r, --recursive: 递归搜索子目录</span><br><span class="line">-v, --invert-match: 输出没有匹配的行</span><br></pre></td></tr></table></figure></p>
+<p>我们可以通过管道操作来让grep变得更强大，管道操作就是把前面一条命令的输出作为后面一条命令的输入，从而把很多简单的命令组合起来完成复杂的功能。</p>
+<p>例如，如果我们想查找包含apple的行，但又想过滤掉pineapple，可以用下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep apple fruitlist.txt | grep -v pineapple</span><br></pre></td></tr></table></figure>
+<p>如果我们想把搜索结果保存起来，那么可以把命令的标准输出重定向到文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep apple fruitlist.txt | grep -v pineapple &gt; apples.txt</span><br></pre></td></tr></table></figure></p>
+<p>重定向符号&gt;和管道操作符号|的区别是，重定向后面接的是一个文件，它后面不能再接任何文件或命令了；而管道操作后面接的是命令，可以无限地接下去。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grep/">grep</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Linux/">Linux</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-histroy_back_js_flush" class="article article-type-post" itemscope itemprop="blogPost">
   
