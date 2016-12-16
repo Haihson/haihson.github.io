@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 20px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
+						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 20px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 20px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/php/" style="font-size: 20px;">php</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,75 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linux_mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/16/linux_mysql/" class="article-date">
+  	<time datetime="2016-12-16T08:52:29.000Z" itemprop="datePublished">2016-12-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/linux_mysql/">Linux MySQL mysql.sock 问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux-使用MySQL命令的-mysql-sock-问题"><a href="#Linux-使用MySQL命令的-mysql-sock-问题" class="headerlink" title="Linux 使用MySQL命令的 mysql.sock 问题"></a>Linux 使用MySQL命令的 mysql.sock 问题</h1><p>在服务器上使用mysql命令报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/tmp/mysql.sock&apos; (2)</span><br></pre></td></tr></table></figure>
+<p>停止、启动MySQL都是正常的，数据库也是在正常运行中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@banana bin]# /etc/init.d/mysqld stop</span><br><span class="line"> Shutting down MySQL....                                    [  OK  ]</span><br><span class="line">[root@banana bin]# /etc/init.d/mysqld start</span><br><span class="line"> Starting MySQL/data/mysql/data</span><br><span class="line"> ..                                                         [  OK  ]</span><br><span class="line"> </span><br><span class="line">[root@banana data]# /etc/init.d/mysqld status</span><br><span class="line"> MySQL running (6557)                                       [  OK  ]</span><br></pre></td></tr></table></figure>
+<p>这时想着查看一下数据库进程信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@banana bin]# ps -ef | grep mysql</span><br><span class="line">root      1973     1  0 Nov24 ?        00:00:00 /bin/sh /usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my.cnf --datadir=/data/mysql/data --pid-file=/data/mysql/data/banana.pid</span><br><span class="line">mysql     2815  1973  0 Nov24 ?        01:59:56 /usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --basedir=/usr/local/mysql --datadir=/data/mysql/data --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=/data_big/mysql/data/banana.err --open-files-limit=8192 --pid-file=/data_big/mysql/data/banana.pid --socket=/data/mysql/data/mysql.sock --port=3306</span><br><span class="line">root      5644  4460  0 14:05 pts/2    00:00:00 grep --color=auto mysql</span><br></pre></td></tr></table></figure></p>
+<p>发现 /data/mysql/data/mysql.sock 这里存在一个 mysql.sock 文件，/etc/my.cnf这个配置文件里面 socket 也是填写的这个路径，但运行命令就是提示 /tmp/mysql.sock 不能连接，这时 cd 到 /tmp这个文件夹下面查看，的确没有mysql.sock这个文件，搜索了一下这个文件，了解到mysql.sock的作用是server和client在同一台服务器，并且使用localhost进行链接的时候，就会使用socket来进行连接——仅此而已</p>
+<p>网上也有人在讨论这个 mysql.sock 文件丢失的问题， 有说 重启服务器， 重启mysql数据库， mysql.sock 会自动生成， 我试过但都木有用</p>
+<p>既然tmp/下面木有这个文件， /data/mysql/data/下面有，直接建立软连接好了，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /data/mysql/data/mysql .sock   /tmp/mysql .sock</span><br></pre></td></tr></table></figure></p>
+<p>再次运行MySQL命令，就可以正常使用了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Linux/">Linux</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux_grep" class="article article-type-post" itemscope itemprop="blogPost">
   
