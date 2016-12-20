@@ -4,27 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Linux MySQL mysql.sock 问题 | Haihson&#39;s Blog</title>
+  <title>MySQL SQL Mode 严格模式问题 | Haihson&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux 使用MySQL命令的 mysql.sock 问题在服务器上使用mysql命令报错：
-1ERROR 2002 (HY000): Can&amp;apos;t connect to local MySQL server through socket &amp;apos;/tmp/mysql.sock&amp;apos; (2)
-停止、启动MySQL都是正常的，数据库也是在正常运行中。
-12345678[root@">
+  <meta name="description" content="MySQL严格模式下导致的问题在本地开发环境跑完项目，是正常OK的；把项目部署到生产环境后，发现项目能正常访问，但是在进行新增操作时，报了数据库表插入时的错误：
+1ERROR 1364 (HY000): Field &amp;apos;数据库字段&amp;apos; doesn&amp;apos;t have a default value INSERT INTO 表
+刚开始觉得很奇怪，因为开发环境和生成环境用的MySQ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux MySQL mysql.sock 问题">
-<meta property="og:url" content="http://haihson.github.io/2016/12/16/Linux_MySQL/index.html">
+<meta property="og:title" content="MySQL SQL Mode 严格模式问题">
+<meta property="og:url" content="http://haihson.github.io/2016/12/20/MySQL_SQL_Mode/index.html">
 <meta property="og:site_name" content="Haihson's Blog">
-<meta property="og:description" content="Linux 使用MySQL命令的 mysql.sock 问题在服务器上使用mysql命令报错：
-1ERROR 2002 (HY000): Can&amp;apos;t connect to local MySQL server through socket &amp;apos;/tmp/mysql.sock&amp;apos; (2)
-停止、启动MySQL都是正常的，数据库也是在正常运行中。
-12345678[root@">
-<meta property="og:updated_time" content="2016-12-20T02:49:51.582Z">
+<meta property="og:description" content="MySQL严格模式下导致的问题在本地开发环境跑完项目，是正常OK的；把项目部署到生产环境后，发现项目能正常访问，但是在进行新增操作时，报了数据库表插入时的错误：
+1ERROR 1364 (HY000): Field &amp;apos;数据库字段&amp;apos; doesn&amp;apos;t have a default value INSERT INTO 表
+刚开始觉得很奇怪，因为开发环境和生成环境用的MySQ">
+<meta property="og:updated_time" content="2016-12-20T02:48:02.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux MySQL mysql.sock 问题">
-<meta name="twitter:description" content="Linux 使用MySQL命令的 mysql.sock 问题在服务器上使用mysql命令报错：
-1ERROR 2002 (HY000): Can&amp;apos;t connect to local MySQL server through socket &amp;apos;/tmp/mysql.sock&amp;apos; (2)
-停止、启动MySQL都是正常的，数据库也是在正常运行中。
-12345678[root@">
+<meta name="twitter:title" content="MySQL SQL Mode 严格模式问题">
+<meta name="twitter:description" content="MySQL严格模式下导致的问题在本地开发环境跑完项目，是正常OK的；把项目部署到生产环境后，发现项目能正常访问，但是在进行新增操作时，报了数据库表插入时的错误：
+1ERROR 1364 (HY000): Field &amp;apos;数据库字段&amp;apos; doesn&amp;apos;t have a default value INSERT INTO 表
+刚开始觉得很奇怪，因为开发环境和生成环境用的MySQ">
   
     <link rel="alternative" href="/atom.xml" title="Haihson&#39;s Blog" type="application/atom+xml">
   
@@ -181,11 +178,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Linux_MySQL" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-MySQL_SQL_Mode" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/12/16/Linux_MySQL/" class="article-date">
-  	<time datetime="2016-12-16T08:52:29.000Z" itemprop="datePublished">2016-12-16</time>
+      <a href="/2016/12/20/MySQL_SQL_Mode/" class="article-date">
+  	<time datetime="2016-12-20T02:47:20.000Z" itemprop="datePublished">2016-12-20</time>
 </a>
     </div>
   
@@ -198,7 +195,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux MySQL mysql.sock 问题
+      MySQL SQL Mode 严格模式问题
     </h1>
   
 
@@ -212,7 +209,7 @@
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Linux/">Linux</a>
+	<a class="article-category-link" href="/categories/MySQL/">MySQL</a>
 	</div>
 
 
@@ -222,15 +219,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Linux-使用MySQL命令的-mysql-sock-问题"><a href="#Linux-使用MySQL命令的-mysql-sock-问题" class="headerlink" title="Linux 使用MySQL命令的 mysql.sock 问题"></a>Linux 使用MySQL命令的 mysql.sock 问题</h1><p>在服务器上使用mysql命令报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&apos;t connect to local MySQL server through socket &apos;/tmp/mysql.sock&apos; (2)</span><br></pre></td></tr></table></figure>
-<p>停止、启动MySQL都是正常的，数据库也是在正常运行中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@banana bin]# /etc/init.d/mysqld stop</span><br><span class="line"> Shutting down MySQL....                                    [  OK  ]</span><br><span class="line">[root@banana bin]# /etc/init.d/mysqld start</span><br><span class="line"> Starting MySQL/data/mysql/data</span><br><span class="line"> ..                                                         [  OK  ]</span><br><span class="line"> </span><br><span class="line">[root@banana data]# /etc/init.d/mysqld status</span><br><span class="line"> MySQL running (6557)                                       [  OK  ]</span><br></pre></td></tr></table></figure>
-<p>这时想着查看一下数据库进程信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@banana bin]# ps -ef | grep mysql</span><br><span class="line">root      1973     1  0 Nov24 ?        00:00:00 /bin/sh /usr/local/mysql/bin/mysqld_safe --defaults-file=/etc/my.cnf --datadir=/data/mysql/data --pid-file=/data/mysql/data/banana.pid</span><br><span class="line">mysql     2815  1973  0 Nov24 ?        01:59:56 /usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --basedir=/usr/local/mysql --datadir=/data/mysql/data --plugin-dir=/usr/local/mysql/lib/plugin --user=mysql --log-error=/data_big/mysql/data/banana.err --open-files-limit=8192 --pid-file=/data_big/mysql/data/banana.pid --socket=/data/mysql/data/mysql.sock --port=3306</span><br><span class="line">root      5644  4460  0 14:05 pts/2    00:00:00 grep --color=auto mysql</span><br></pre></td></tr></table></figure></p>
-<p>发现 /data/mysql/data/mysql.sock 这里存在一个 mysql.sock 文件，/etc/my.cnf这个配置文件里面 socket 也是填写的这个路径，但运行命令就是提示 /tmp/mysql.sock 不能连接，这时 cd 到 /tmp这个文件夹下面查看，的确没有mysql.sock这个文件，搜索了一下这个文件，了解到mysql.sock的作用是server和client在同一台服务器，并且使用localhost进行链接的时候，就会使用socket来进行连接——仅此而已</p>
-<p>网上也有人在讨论这个 mysql.sock 文件丢失的问题， 有说 重启服务器， 重启mysql数据库， mysql.sock 会自动生成， 我试过但都木有用</p>
-<p>既然tmp/下面木有这个文件， /data/mysql/data/下面有，直接建立软连接好了，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /data/mysql/data/mysql .sock   /tmp/mysql .sock</span><br></pre></td></tr></table></figure></p>
-<p>再次运行MySQL命令，就可以正常使用了。</p>
+        <h4 id="MySQL严格模式下导致的问题"><a href="#MySQL严格模式下导致的问题" class="headerlink" title="MySQL严格模式下导致的问题"></a>MySQL严格模式下导致的问题</h4><p>在本地开发环境跑完项目，是正常OK的；把项目部署到生产环境后，发现项目能正常访问，但是在进行新增操作时，报了数据库表插入时的错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1364 (HY000): Field &apos;数据库字段&apos; doesn&apos;t have a default value INSERT INTO 表</span><br></pre></td></tr></table></figure>
+<p>刚开始觉得很奇怪，因为开发环境和生成环境用的MySQL、Apache都是同样的版本，很纳闷…..</p>
+<p>这时去查看报错日志，找到报错那个位置的代码，没发现有什么异常，然后再回首来看报出的错，意思是说字段没有默认值，也去搜索了这方面的问题，发现是MySQL数据库配置的严格模式问题，我本地环境的MySQL开启的非严格模式，生产环境开启是严格模式，MySQL模式配置说明 <a href="http://dev.mysql.com/doc/refman/5.7/en/sql-mode.html" target="_blank" rel="external">传送门</a></p>
+<p>如何开启、关闭MySQL严格模式，找到MySQL的配置文件路径</p>
+<ul>
+<li>linux 下 vim /etc/my.cnf</li>
+<li>windows 下 安装路径的my.ini/my.cnf</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES 严格模式</span><br><span class="line"></span><br><span class="line">sql_mode=&quot;&quot; 非严格模式</span><br></pre></td></tr></table></figure>
+<p>然后重启MySQL服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">For CentOS 7 servers:</span><br><span class="line">systemctl restart mysql</span><br><span class="line"></span><br><span class="line">For CentOS 6 and prior:</span><br><span class="line">/etc/init.d/mysql restart</span><br><span class="line"></span><br><span class="line">For Windows</span><br><span class="line">net stop MySQL   </span><br><span class="line">net start MySQL</span><br></pre></td></tr></table></figure></p>
+<p>这样就解决问题了。</p>
+<p>No 这样的做法是可以解决这个情况，但不是很好的做法，MySQL严格模式可以使数据更加安全严格，减少了对空数据入库。可以提高代码的质量及对数据的严谨性，所以建议在开发环境就开启严格模式，代码中在进行数据表操作时改默认的写默认，数据库表设计时要默认的写默认。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `mytable` (</span><br><span class="line"> `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line"> `title` varchar(20) NOT NULL,</span><br><span class="line"> `content` text NOT NULL,</span><br><span class="line"> PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure></p>
+<p>插入一条记录，title 的值为 NULL</p>
+<p>非严格模式下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; insert into table(content) values(&apos;value&apos;);</span><br><span class="line">Query OK, 1 row affected, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from mytable;</span><br><span class="line">+----+------+------------+</span><br><span class="line">| id | title | content    |</span><br><span class="line">+----+------+------------+</span><br><span class="line">|  1 |       | programmer |</span><br><span class="line">+----+-------+------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p>严格模式下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; insert into table(content) values(&apos;value&apos;);</span><br><span class="line">ERROR 1364 (HY000): Field &apos;title&apos; doesn&apos;t have a default value</span><br></pre></td></tr></table></figure></p>
+<p>所以我最后的做法是在代码中更改了操作数据库表的SQL写上默认值。</p>
 
       
     </div>
@@ -240,18 +246,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/12/20/MySQL_SQL_Mode/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          MySQL SQL Mode 严格模式问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/05/Linux_grep/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux grep 命令</div>
+    <a href="/2016/12/16/Linux_MySQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux MySQL mysql.sock 问题</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
