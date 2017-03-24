@@ -41,7 +41,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">mmmmmmm香蕉</p>
+		<p class="header-subtitle">mmmmmmmmmmmm</p>
 		
 
 		
@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 15px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/command/" style="font-size: 10px;">command</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 15px;">php</a>
+						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 15px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/command/" style="font-size: 15px;">command</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 15px;">php</a>
 					</div>
 				</section>
 				
@@ -144,7 +144,7 @@
 			  <h1 class="header-author">Haihson</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">mmmmmmm香蕉</p>
+			<p class="header-subtitle">mmmmmmmmmmmm</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -172,6 +172,83 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Git_command_note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/24/Git_command_note/" class="article-date">
+  	<time datetime="2017-03-24T02:47:39.000Z" itemprop="datePublished">2017-03-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/24/Git_command_note/">Git命令使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Git命令使用"><a href="#Git命令使用" class="headerlink" title="Git命令使用"></a>Git命令使用</h2><p>Git是一个开源的分布式版本控制系统，用来项目版本管理。其他的优缺点就不在这多说了，大家可以自行去查阅文档，这里记录下日常使用Git的一些常用命令，日常使用是够了。<a href="https://git-scm.com/docs" target="_blank" rel="external">Git全部命令文档传送门</a></p>
+<blockquote>
+<p>示意图</p>
+</blockquote>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20170324104238.png" alt="img"></p>
+<blockquote>
+<p>仓库</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Workspace：工作区</span><br><span class="line">Index：暂存区</span><br><span class="line">Repository：仓库区（或本地仓库）</span><br><span class="line">Remote：远程仓库</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>初始化代码库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">在当前目录下新建一个Git代码库</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in xxxxxx/.git/</span><br><span class="line"></span><br><span class="line">在当前目录下新建一个目录并将他初始化为Git代码库</span><br><span class="line">$ git init newfolder</span><br><span class="line"></span><br><span class="line">下载一个代码库(因为Git是分布式的，所以它的整个代码历史都在里面)</span><br><span class="line">$ git clone https://github.com/Haihson/shareCoupon.git</span><br><span class="line">Cloning into &apos;shareCoupon&apos;...</span><br><span class="line">remote: Counting objects: 85, done.</span><br><span class="line">remote: Compressing objects: 100% (74/74), done.</span><br><span class="line">remote: Total 85 (delta 2), reused 81 (delta 1), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (85/85), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure></p>
+<p>查看信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">显示有变更的文件</span><br><span class="line">$ git status</span><br><span class="line"></span><br><span class="line">显示当前分支的版本历史</span><br><span class="line">$ git log</span><br></pre></td></tr></table></figure></p>
+<p>文件操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">新增文件</span><br><span class="line">添加指定文件到暂存区</span><br><span class="line">$ git add 文件 ...</span><br><span class="line"></span><br><span class="line">添加指定目录到暂存区，包括子目录</span><br><span class="line">$ git add 文件夹目录</span><br><span class="line"></span><br><span class="line">添加当前目录的所有文件到暂存区</span><br><span class="line">$ git add .</span><br></pre></td></tr></table></figure></p>
+<p>分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">列出所有本地分支</span><br><span class="line">$ git branch</span><br><span class="line"></span><br><span class="line">新建一个分支，但依然停留在当前分支</span><br><span class="line">$ git branch 分支名称</span><br><span class="line"></span><br><span class="line">新建一个分支，并切换到该分支</span><br><span class="line">$ git checkout -b 分支名称</span><br><span class="line"></span><br><span class="line">切换分支</span><br><span class="line">$ git checkout 分支名称</span><br><span class="line"></span><br><span class="line">删除分支</span><br><span class="line">$ git branch -d 分支名称</span><br></pre></td></tr></table></figure></p>
+<p>合并<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">合并指定分支到当前分支</span><br><span class="line">$ git merge 分支名称</span><br></pre></td></tr></table></figure></p>
+<p>代码提交、拉取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">本地代码提交</span><br><span class="line"></span><br><span class="line">提交暂存区到仓库区</span><br><span class="line">$ git commit -m &quot;本次提交的说明&quot;</span><br><span class="line"></span><br><span class="line">本地仓库与远程仓库同步</span><br><span class="line"></span><br><span class="line">显示所有远程仓库</span><br><span class="line">$ git remote -v</span><br><span class="line"></span><br><span class="line">上传本地指定分支到远程仓库</span><br><span class="line">$ git push 远程仓库名称 分支名称</span><br><span class="line"></span><br><span class="line">拉取远程仓库并与本地分支合并</span><br><span class="line">$ git pull 远程仓库名称 分支名称</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command/">command</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Git/">Git</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Linux_command_note" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -875,67 +952,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/04/22/hello-world/" class="article-date">
-  	<time datetime="2016-04-22T02:30:37.796Z" itemprop="datePublished">2016-04-22</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
