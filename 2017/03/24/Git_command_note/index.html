@@ -37,7 +37,7 @@
 
 123456789101112131">
 <meta property="og:image" content="http://o73el5cs1.bkt.clouddn.com/20170324104238.png">
-<meta property="og:updated_time" content="2017-03-24T02:58:15.234Z">
+<meta property="og:updated_time" content="2017-03-24T07:40:01.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git命令使用">
 <meta name="twitter:description" content="Git命令使用Git是一个开源的分布式版本控制系统，用来项目版本管理。其他的优缺点就不在这多说了，大家可以自行去查阅文档，这里记录下日常使用Git的一些常用命令，日常使用是够了。Git全部命令文档传送门
@@ -279,7 +279,7 @@
 <blockquote>
 <p>合并</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">合并指定分支到当前分支</span><br><span class="line">$ git merge 分支名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">合并指定分支到当前分支</span><br><span class="line">$ git merge 分支名称</span><br><span class="line"></span><br><span class="line"># 对分支进行合并(--no-ff参数进行合并，会在合并后的主干上生成一个新节点，相比只用merge多了节点记录，便于查看版本更迭情况)</span><br><span class="line">$ git merge --no-ff 分支名称</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>代码提交、拉取</p>
 </blockquote>
