@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/apache/" style="font-size: 15px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/command/" style="font-size: 15px;">command</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 15px;">php</a>
+						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/System/" style="font-size: 10px;">System</a> <a href="/tags/animation/" style="font-size: 10px;">animation</a> <a href="/tags/apache/" style="font-size: 15px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/command/" style="font-size: 15px;">command</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 15px;">php</a>
 					</div>
 				</section>
 				
@@ -173,11 +173,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-apahce+php" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/22/hello-world/" class="article-date">
-  	<time datetime="2016-04-22T02:30:37.796Z" itemprop="datePublished">2016-04-22</time>
+      <a href="/2016/05/12/apahce+php/" class="article-date">
+  	<time datetime="2016-05-12T15:28:49.000Z" itemprop="datePublished">2016-05-12</time>
 </a>
     </div>
   
@@ -190,7 +190,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/22/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/05/12/apahce+php/">windows Apache+PHP环境搭建</a>
     </h1>
   
 
@@ -199,7 +199,123 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>最近下了一个PHP做的项目，需要跑起来研究研究，所以就捣腾起了，刚好记录下过程，方便后续健忘时有需要查阅，也可能对今后有需要的伙伴一个借鉴，好了，废话不多说了，直接上过程。</p>
+<p>首先准备好待安装的文件:</p>
+<ul>
+<li><a href="http://www.apachehaus.com/cgi-bin/download.plx" target="_blank" rel="external">Apache2.4.20</a> </li>
+<li><a href="http://windows.php.net/download/" target="_blank" rel="external">PHP5.6.21</a></li>
+</ul>
+<p>这是我所选择的版本 httpd-2.4.20-x64 、php-5.6.21-Win32-VC11-x64  windwos64位，当然你也可根据自己需要下载对应的版本；</p>
+<h4 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h4><p><img src="http://o73el5cs1.bkt.clouddn.com/20160513095738.png" alt="Apache"><br><img src="http://o73el5cs1.bkt.clouddn.com/20160513095802.png" alt="Apache"></p>
+<h4 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h4><p>下载的 Thread Safe 线程安全的</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513100502.png" alt="Apache"></p>
+<p>到这里，我们先定义下下载下来的安装文件存放路径，以及安装的路径，以下为示例：</p>
+<ul>
+<li>F:/tmp_file 这个为安装文件的存放目录；</li>
+<li>F:/apache24 这个为 Apache2.4.20 所安装的目录；</li>
+<li>F:/php5.6.21 这个为 php5.6.21 所安装的目录；</li>
+</ul>
+<p>现在，如果已全部下载完成，则会得到这两个文件 httpd-2.4.20-x64-vc14-r2.zip 、 php-5.6.21-Win32-VC11-x64.zip</p>
+<h3 id="Apahce安装"><a href="#Apahce安装" class="headerlink" title="Apahce安装"></a>Apahce安装</h3><h5 id="解压-httpd-2-4-20-x64-vc14-r2-zip-到-F-apache24"><a href="#解压-httpd-2-4-20-x64-vc14-r2-zip-到-F-apache24" class="headerlink" title="解压 httpd-2.4.20-x64-vc14-r2.zip 到 F:/apache24"></a>解压 httpd-2.4.20-x64-vc14-r2.zip 到 F:/apache24</h5><p>解压完成，然后打开 命令提示符 窗口(注意如果是win8系统，则要以管理员的权限来打开，快捷键为 windows键+x 然后按 a)，切换到 F:/apache24/bin 目录，输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd -k install</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513101845.png" alt="cmd操作"></p>
+<p>此步骤是安装 Apache 服务，这个可在系统服务中查看，新增加了一个名为 Apahce24 的服务，接下来打开 F:/apache24/conf/httpd.conf 这个配置文件，找到如下代码位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Define SRVROOT &quot;/Apache24&quot; </span><br><span class="line">ServerRoot &quot;$&#123;SRVROOT&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>把这个 “/Apache24” 更改为你安装 Apache 的目录 “F:/Apache24” </p>
+<p>默认的端口为80，这里我使用默认端口，如需更改，直接把80换成别的端口号，如8080<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Listen 80</span><br></pre></td></tr></table></figure></p>
+<p>好，到这里为止，Apache的配置基本完毕，看下效果，启动Apache，输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd -k start</span><br></pre></td></tr></table></figure></p>
+<p>然后在浏览器中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost</span><br></pre></td></tr></table></figure></p>
+<p>即可看见 Apache 的欢迎页面。</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513102156.png" alt="Apache欢迎"></p>
+<h3 id="PHP安装"><a href="#PHP安装" class="headerlink" title="PHP安装"></a>PHP安装</h3><h5 id="解压-php-5-6-21-Win32-VC11-x64-zip-到-F-php5-6-21"><a href="#解压-php-5-6-21-Win32-VC11-x64-zip-到-F-php5-6-21" class="headerlink" title="解压 php-5.6.21-Win32-VC11-x64.zip 到 F:/php5.6.21"></a>解压 php-5.6.21-Win32-VC11-x64.zip 到 F:/php5.6.21</h5><p>解压完成，在目录下有一个 php.ini-production 文件，将其重命名为 php.ini 并打开<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">; extension_dir = &quot;./&quot;</span><br></pre></td></tr></table></figure></p>
+<p>修改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension_dir = &quot;F:/php5.6.21/ext&quot;</span><br></pre></td></tr></table></figure></p>
+<p>去掉了前面的分号，来配置支持数据库，socket等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">;extension=php_bz2.dll</span><br><span class="line">extension=php_curl.dll</span><br><span class="line">;extension=php_fileinfo.dll</span><br><span class="line">extension=php_gd2.dll</span><br><span class="line">;extension=php_gettext.dll</span><br><span class="line">;extension=php_gmp.dll</span><br><span class="line">;extension=php_intl.dll</span><br><span class="line">extension=php_imap.dll</span><br><span class="line">;extension=php_interbase.dll</span><br><span class="line">;extension=php_ldap.dll</span><br><span class="line">extension=php_mbstring.dll</span><br><span class="line">;extension=php_exif.dll      ; Must be after mbstring as it depends on it</span><br><span class="line">extension=php_mysql.dll</span><br><span class="line">extension=php_mysqli.dll</span><br><span class="line">;extension=php_oci8_12c.dll  ; Use with Oracle Database 12c Instant Client</span><br><span class="line">;extension=php_openssl.dll</span><br><span class="line">;extension=php_pdo_firebird.dll</span><br><span class="line">extension=php_pdo_mysql.dll</span><br><span class="line">;extension=php_pdo_oci.dll</span><br><span class="line">;extension=php_pdo_odbc.dll</span><br><span class="line">;extension=php_pdo_pgsql.dll</span><br><span class="line">;extension=php_pdo_sqlite.dll</span><br><span class="line">;extension=php_pgsql.dll</span><br><span class="line">;extension=php_shmop.dll</span><br><span class="line"></span><br><span class="line">; The MIBS data available in the PHP distribution must be installed. </span><br><span class="line">; See http://www.php.net/manual/en/snmp.installation.php </span><br><span class="line">extension=php_snmp.dll</span><br><span class="line"></span><br><span class="line">extension=php_soap.dll</span><br><span class="line">extension=php_sockets.dll</span><br><span class="line">;extension=php_sqlite3.dll</span><br><span class="line">;extension=php_sybase_ct.dll</span><br><span class="line">;extension=php_tidy.dll</span><br><span class="line">;extension=php_xmlrpc.dll</span><br><span class="line">;extension=php_xsl.dll</span><br></pre></td></tr></table></figure></p>
+<p>然后再次打开 F:/apache24/conf/httpd.conf 这个配置文件，修改首页文件类型支持</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.html index.htm index.php</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>接下来向httpd.conf中写入PHP支持模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 如下为PHP环境添加模块</span><br><span class="line">LoadModule php5_module &quot;F:/php5.6.21/php5apache2_4.dll&quot;</span><br><span class="line">PHPIniDir &quot;F:/php5.6.21/php.ini&quot;</span><br><span class="line"></span><br><span class="line"># 添加PHP支持</span><br><span class="line">AddType application/x-httpd-php .php</span><br></pre></td></tr></table></figure>
+<p>接下来，来验证PHP是否安装完毕，在命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd -k restart</span><br></pre></td></tr></table></figure>
+<p>重新启动服务。在 F:\Apache24\htdocs (这个为 Apache 默认的项目存放路径，如需更改，可在 httpd.conf 中更改 DocumentRoot 指向的路径，然后重启 Apache 即可生效) 路径下新建一个文件phpinfo.php，内容添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php phpinfo();?&gt;</span><br></pre></td></tr></table></figure>
+<p>然后在浏览器输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/phpinfo.php</span><br></pre></td></tr></table></figure></p>
+<p>显示为PHP的版本的详情信息，则表示PHP环境安装成功。</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513102434.png" alt="php信息"></p>
+<p>至此，Apache+php的基本配置已完毕。</p>
+<p>后续加入PHP项目，这里可能会遇到一个坑，就在是服务启动正常，但是在访问PHP项目的时候会报错，导致部分功能不能正常使用，其他的访问正常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHP Parse error:  syntax error, unexpected end of file xxxx文件</span><br></pre></td></tr></table></figure>
+<p>查看报错位置的文件，也发现完全没有问题，这样捣腾来回一两小时过去了，最后搜索到有人遇到了一样的这个问题</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513150504.png" alt="php错误信息"></p>
+<p>有大神留有答案</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160513150530.png" alt="php错误信息"></p>
+<p>就是 short_open_tag 这个配置，这个在 php.ini 文件中默认为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">short_open_tag = Off</span><br></pre></td></tr></table></figure>
+<p>将其更改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">short_open_tag = On</span><br></pre></td></tr></table></figure>
+<p>问题解决， O MY GOD …. 就因为这个。然后去PHP官网了解了这个配置指令</p>
+<p><a href="http://php.net/manual/zh/ini.core.php#ini.short-open-tag" target="_blank" rel="external">官网地址</a> 更详细的可去官网自行查阅</p>
+<p>short_open_tag boolean<br>决定是否允许使用 PHP 代码开始标志的缩写形式（&lt;? ?&gt;）。如果要和 XML 结合使用 PHP，可以禁用此选项以便于嵌入使用 &lt;?xml ?&gt;。否则还可以通过 PHP 来输出，例如：&lt;?php echo ‘&lt;?xml version=”1.0”‘; ?&gt;。如果禁用了，必须使用 PHP 代码开始标志的完整形式（&lt;?php ?&gt;）。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/PHP/">PHP</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/16/hello-world/" class="article-date">
+  	<time datetime="2014-06-16T08:52:29.000Z" itemprop="datePublished">2014-06-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/16/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="title-Hello-World"><a href="#title-Hello-World" class="headerlink" title="title: Hello World"></a>title: Hello World</h2><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -215,7 +331,15 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/System/">System</a></li></ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/system/">system</a>
+	</div>
+
 
       
       <div class="clearfix"></div>
