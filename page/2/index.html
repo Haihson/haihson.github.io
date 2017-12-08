@@ -107,7 +107,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/System/" style="font-size: 10px;">System</a> <a href="/tags/animation/" style="font-size: 10px;">animation</a> <a href="/tags/apache/" style="font-size: 15px;">apache</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/command/" style="font-size: 15px;">command</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 15px;">html5</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 15px;">php</a>
+						<a href="/tags/BeautifulSoup/" style="font-size: 10px;">BeautifulSoup</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 13.33px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/System/" style="font-size: 10px;">System</a> <a href="/tags/animation/" style="font-size: 10px;">animation</a> <a href="/tags/apache/" style="font-size: 13.33px;">apache</a> <a href="/tags/backgroud/" style="font-size: 10px;">backgroud</a> <a href="/tags/cms/" style="font-size: 10px;">cms</a> <a href="/tags/command/" style="font-size: 13.33px;">command</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/html5/" style="font-size: 16.67px;">html5</a> <a href="/tags/img/" style="font-size: 10px;">img</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/php/" style="font-size: 13.33px;">php</a>
 					</div>
 				</section>
 				
@@ -172,6 +172,81 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-apache_php_cms" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/19/apache_php_cms/" class="article-date">
+  	<time datetime="2016-05-19T03:50:19.000Z" itemprop="datePublished">2016-05-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/19/apache_php_cms/">Apache_PHP_CMS项目运行问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾-汗，差不多两天…-，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是-htaccess-这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示"><a href="#在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾-汗，差不多两天…-，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是-htaccess-这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示" class="headerlink" title="在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾(汗，差不多两天…)，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是 .htaccess 这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示"></a>在运行CMS项目的时候，配置的模块访问不了，报404错误，只有首页可以正常访问，查看了项目所有配置，都没有发现问题。经过一番折腾(汗，差不多两天…)，PS：刚开始接触PHP项目，一直以为可能是项目本身的问题，一直在查代码，最后发现最有可能出问题的就是 .htaccess 这个文件可能没有被服务器加载，这里要特别感谢一位国外友人回复的邮件给了我提示</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br><span class="line">Please check if you have in merger/ a file called .htaccess It handles the link rewriting.</span><br><span class="line">If you have it your server might not load it, or you might not have mod_rewrite enabled.</span><br></pre></td></tr></table></figure>
+<p>所以搜索了下 Apahce php 关于这个文件的相关问题，果然有收获</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111439.png" alt=".htaccess problem"></p>
+<p>找到这个问题描述的情况和我出现的问题有很大可能就是这个原因</p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111544.png" alt=".htaccess problem"></p>
+<p>根据以上描述，找到 Apache 模块配置的文档 <a href="http://httpd.apache.org/docs/2.4/mod/core.html#allowoverride" target="_blank" rel="external">传送门</a> </p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111630.png" alt=".htaccess Answers"></p>
+<p>应该是要在 Apache 的配置文件 httpd.conf 文件中 配置 AllowOverride<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride All    此处将默认的 none 改为 All</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">AllowOverride All        此处将默认的 none 改为 All</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">&lt;Directory &quot;$&#123;SRVROOT&#125;/cgi-bin&quot;&gt;</span><br><span class="line">    AllowOverride All    此处将默认的 none 改为 All</span><br><span class="line">    Options All          此处将默认的 none 改为 All</span><br><span class="line">    Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后重启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd -k restart</span><br></pre></td></tr></table></figure></p>
+<h5 id="解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error-log日志，错误："><a href="#解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error-log日志，错误：" class="headerlink" title="解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error.log日志，错误："></a>解决以上问题后，再运行php项目的时候，发现之前正常的图片相关的功能不能正常使用，上传出错，图片链接也访问不了，查看error.log日志，错误：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invalid command &apos;Order&apos;, perhaps misspelled or defined by a module not included in the server configuration</span><br></pre></td></tr></table></figure>
+<p>搜索了下这个错误，找到出现同样问题的结果：<br><img src="http://o73el5cs1.bkt.clouddn.com/20160519111331.png" alt="error log"></p>
+<p>解决如下，原来是需要加载一个模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule access_compat_module modules/mod_access_compat.so  去掉前面的#号</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://o73el5cs1.bkt.clouddn.com/20160519111406.png" alt="Invalid command &#39;Order&#39; Answers"></p>
+<p>然后重启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">httpd -k restart</span><br></pre></td></tr></table></figure></p>
+<p>ok 解决了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apache/">apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cms/">cms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/PHP/">PHP</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-apahce+php" class="article article-type-post" itemscope itemprop="blogPost">
   
